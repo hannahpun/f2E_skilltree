@@ -1,0 +1,77 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?7pyb7m');
+  src:  url('fonts/icomoon.eot?7pyb7m#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?7pyb7m') format('truetype'),
+    url('fonts/icomoon.woff?7pyb7m') format('woff'),
+    url('fonts/icomoon.svg?7pyb7m#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sharp-build-24px:before {
+  content: "\e900";
+}
+.icon-sharp-category-24px:before {
+  content: "\e901";
+}
+.icon-sharp-developer_board-24px:before {
+  content: "\e902";
+}
+.icon-sharp-developer_mode-24px:before {
+  content: "\e903";
+}
+.icon-sharp-device_hub-24px:before {
+  content: "\e904";
+}
+.icon-sharp-devices-24px:before {
+  content: "\e905";
+}
+.icon-sharp-filter_tilt_shift-24px:before {
+  content: "\e906";
+}
+.icon-sharp-flip_to_front-24px:before {
+  content: "\e907";
+}
+.icon-sharp-format_quote-24px:before {
+  content: "\e908";
+}
+.icon-sharp-gradient-24px:before {
+  content: "\e909";
+}
+.icon-sharp-hdr_strong-24px:before {
+  content: "\e90a";
+}
+.icon-sharp-import_contacts-24px:before {
+  content: "\e90b";
+}
+.icon-sharp-nfc-24px:before {
+  content: "\e90c";
+}
+.icon-sharp-settings-24px:before {
+  content: "\e90d";
+}
+.icon-sharp-table_chart-24px:before {
+  content: "\e90e";
+}
+.icon-sharp-view_quilt-24px:before {
+  content: "\e90f";
+}
+.icon-sharp-widgets-24px:before {
+  content: "\e910";
+}

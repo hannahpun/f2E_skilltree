@@ -1,0 +1,42 @@
+@mixin square($w, $color) {
+    width: $w;
+    height: $w;
+    background-color: $color;
+}
+
+@mixin circle($w, $color) {
+    width: $w;
+    height: $w;
+    border-radius: 50%;
+    background-color: $color;
+}
+
+@mixin triangle($w, $color) {
+    width: 0;
+	height: 0;
+	border-left: $w solid transparent;
+	border-right: $w solid transparent;
+	border-bottom: $w*1.6 solid $color;
+}
+
+// breakpoint
+$desktop: 1200px;
+$pad: 620px;
+
+@mixin desktop() {
+  @media (min-width: $desktop) {
+    @content;
+  }
+} 
+
+@mixin pad() {
+  @media (max-width: $desktop){
+    @content;
+  }
+}
+
+@mixin mobile() {
+  @media (max-width: $pad) {
+    @content;
+  }
+}
