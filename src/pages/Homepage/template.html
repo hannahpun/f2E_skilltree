@@ -1,7 +1,53 @@
 <div class="homepage">
   <div class="header">
-    <span class="icon-sharp-build-24px"></span>
+      header
+    <!-- <span class="icon-sharp-build-24px"></span> -->
   </div>
-  <div class="body"></div>
-  <div class="note"></div>
+  <div class="body">
+    <div class="body-title">
+        <div class="step step-1">
+          <div class="step-img">
+              <img src="@/assets/img-planet-basics.png" alt="">
+          </div>
+        </div>
+        <div class="step step-2">
+            <div class="step-img">
+                <img src="@/assets/img-planet-css.png" alt="">
+            </div>
+        </div>
+        <div class="step step-3">
+            <div class="step-img">
+                <img src="@/assets/img-planet-js.png" alt="">
+            </div>
+        </div>
+        <div class="step step-4">
+            <div class="step-img">
+                <img src="@/assets/img-planet-managers.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="body-content">
+        <div class="step step-1">
+          <div class="step-item" v-for="item in 2">
+            <div class="item-img"><span class="icon-sharp-build-24px"></span></div>
+            <div class="item-list">
+              <p><span class="icon-sharp-build-24px"></span>0/3</p>
+              <p><span class="icon-sharp-filter_tilt_shift-24px"></span>0/0</p>
+            </div>
+          </div>
+        </div>
+        <div class="step step-2">
+            <div class="step-item" v-for="item in 10">
+                <div class="item-img"><span class="icon-sharp-build-24px"></span></div>
+                <div class="item-list">
+                  <p><span class="icon-sharp-build-24px"></span>0/3</p>
+                  <p><span class="icon-sharp-filter_tilt_shift-24px"></span>0/0</p>
+                </div>
+              </div>
+        </div>
+        <div class="step step-3">3</div>
+        <div class="step step-4">4</div>
+    </div>
+  </div>
+  <div class="note">note</div>
 </div>
