@@ -4,8 +4,9 @@
     <!-- <span class="icon-sharp-build-24px"></span> -->
   </div>
   <div class="body">
+    <!-- {{clickList}}: {{isBasic}} -->
     <div class="body-title">
-        <div class="step step-1">
+        <div class="step step-1" @click.once="addItem('basic')">
           <div class="step-img">
               <img src="@/assets/img-planet-basics.png" alt="">
           </div>
@@ -28,16 +29,16 @@
     </div>
     <div class="body-content">
         <div class="step step-1">
-          <div class="step-item" v-for="item in 2">
-            <div class="item-img"><span class="icon-sharp-build-24px"></span></div>
+          <div class="step-item" :class="{canClick: isBasic, isActive: myDetail.id==item.id}" v-for="(item,index) in basicData" @click="showDetail(basicData[index])">
+            <div class="item-img"><span :class="'icon-sharp-'+ item.icon + '-24px'"></span></div>
             <div class="item-list">
-              <p><span class="icon-sharp-build-24px"></span>0/3</p>
-              <p><span class="icon-sharp-filter_tilt_shift-24px"></span>0/0</p>
+              <p><span class="icon-sharp-build-24px"></span>0/{{item.recommend.length}}</p>
+              <p><span class="icon-sharp-filter_tilt_shift-24px"></span>0/{{item.optional.length}}</p>
             </div>
           </div>
         </div>
         <div class="step step-2">
-            <div class="step-item" v-for="item in 10">
+            <div class="step-item" v-for="item in 5">
                 <div class="item-img"><span class="icon-sharp-build-24px"></span></div>
                 <div class="item-list">
                   <p><span class="icon-sharp-build-24px"></span>0/3</p>
@@ -49,5 +50,28 @@
         <div class="step step-4">4</div>
     </div>
   </div>
-  <div class="note">note</div>
+  <div class="note">
+      <div class="note-header">
+        <div class="title">
+          <span :class="'icon-sharp-'+ myDetail.icon + '-24px'"></span>
+          <h2>{{myDetail.title}}</h2>
+        </div>
+      </div>
+      <div class="note-body">
+        <div class="note-container" v-if="myDetail.recommend">
+          <div class="title">
+              <span class="icon-sharp-settings-24px"></span>
+              <p>RECOMMENDED</p>
+          </div>
+          <button class="btn" v-for="(item,index) in myDetail.recommend" @click="addCheck(myDetail.id, index)">{{item.title}} {{item.checked}}</button>
+        </div>
+        <div class="note-container" v-if="myDetail.optional">
+            <div class="title">
+                <span class="icon-sharp-filter_tilt_shift-24px"></span>
+                <p>OPTIONAL</p>
+            </div>
+            <button class="btn" v-for="item in myDetail.optional">{{item.title}}</button>
+          </div>
+      </div>
+  </div>
 </div>

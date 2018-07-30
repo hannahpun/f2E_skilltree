@@ -17,6 +17,10 @@ body{
   font-family: 'Roboto';
   color: $w;
   font-size: 16px;
+  
+}
+*{
+  box-sizing: border-box;
 }
 button:focus{
   outline: none;
