@@ -83,6 +83,19 @@
       border: 2px solid $pink;
     }
   }
+  &.isDone{
+    .item-img{
+      background-color: $violet;
+      border-color: $grey-light;
+      [class*="icon-"] {
+        color: $lavender-dark;
+      }
+      
+    }
+    .item-list{
+      color: $lavender-dark;
+    }
+  }
   .item-img {
     // background-color: $lavender-dark;
     background-color: $grey-light;
@@ -161,7 +174,7 @@
   font-size: 16px;
   margin-bottom: 5px;
   cursor: pointer;
-  &:hover{
+  &:hover, &.isActive{
     background-color: $pink;
     border-color: $pink;
   }
