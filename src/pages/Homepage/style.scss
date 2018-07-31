@@ -10,14 +10,48 @@
 .note {
   flex: 1;
 }
+// ---------------------------
+//  Header
+// ---------------------------
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  h1{
+    color: $pink;
+    margin-bottom: 25px;
+  }
+  .sub-title{
+    color: $violet;
+    padding: 5px 30px;
+    background-color: $lavender-dark;
+  }
+  h2{
+    margin-top: 15px;
+    text-decoration: underline;
+    line-height: 1.2;
+    text-decoration-color: $lavender-dark;
+  }
+  .myTxt{
+    margin-top: 25px;
+    font-size: 14px;
+    padding: 20px;
+    width: 90%;
+    line-height: 1.4;
+    border: 1px solid $pink;
+  }
+}
 
 // ---------------------------
 //  Body
 // ---------------------------
 .body {
   display: flex;
+  min-width: 300px;
 }
-
+.main-color{
+  color: $pink;
+}
 .body-title {
   display: flex;
   flex-direction: column;
@@ -69,7 +103,12 @@
   }
 }
 
-
+.step-img{
+  opacity: 0.3;
+  &.canClick{
+    opacity: 1;
+  }
+}
 .step-item {
   margin-right: 5px;
   margin-bottom: 10px;
@@ -124,7 +163,7 @@
   background-color: $lavender-dark;
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  max-width: 350px;
   // flex-wrap: wrap;
   .title {
     text-align: center;

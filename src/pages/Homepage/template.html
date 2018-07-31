@@ -1,28 +1,40 @@
 <div class="homepage">
   <div class="header">
-      header
+    <div class="txt">
+        <h1>FRONT-END SKILL TREE</h1>
+        <span class="sub-title">CURRENT RANK</span>
+        <h2>FRONT-END NOOB</h2>
+    </div>
+    
+    <div class="img">
+      <img :src="nowImg" alt="">
+      <p v-if="nowTxt==0" class='myTxt'>Welcome to aboard. Your mission is: <span class="main-color">Collect the resources and learn the skills to upgrade the ship.</span> Good luck, captain!</p>
+      <p v-if="nowTxt==1" class='myTxt'><strong>Congradulations! </strong>You become the <span class="main-color">Front-end Beginnner”.</span>“ Keep searching the resources to upgrade to the next level.</p>
+      <p v-if="nowTxt==2" class='myTxt'><strong>You’re doing well!</strong> Now you’re a <span class="main-color">“Front-end Developer”.</span> It’s close to complete the upgrading program. <br>Next level: Front-end Master.</p>
+      <p v-if="nowTxt==3" class='myTxt'><strong>Excellent!</strong> You’re a <span class="main-color">“Front-end Master”</span> now. But a new galary was just detected by the system. Captain, make your choice.</p>
+    </div>
     <!-- <span class="icon-sharp-build-24px"></span> -->
   </div>
   <div class="body">
     <!-- {{clickList}}: {{isBasic}} -->
     <div class="body-title">
         <div class="step step-1" @click.once="addItem('basic')">
-          <div class="step-img">
+          <div class="step-img canClick">
               <img src="@/assets/img-planet-basics.png" alt="">
           </div>
         </div>
         <div class="step step-2">
-            <div class="step-img">
+            <div class="step-img" :class="{canClick: isCategory('css')}">
                 <img src="@/assets/img-planet-css.png" alt="">
             </div>
         </div>
         <div class="step step-3">
-            <div class="step-img">
+            <div class="step-img" :class="{canClick: isCategory('js')}">
                 <img src="@/assets/img-planet-js.png" alt="">
             </div>
         </div>
         <div class="step step-4">
-            <div class="step-img">
+            <div class="step-img" :class="{canClick: isCategory('manager')}">
                 <img src="@/assets/img-planet-managers.png" alt="">
             </div>
         </div>
@@ -56,7 +68,7 @@
 							</div>
 				</div>
         <div class="step step-4">
-						<div class="step-item" :class="{canClick: isCategory('maneger'), isActive: myDetail.id==item.id, isDone: item.done}" v-for="(item,index) in managerLists" @click="showDetail(managerLists[index])">
+						<div class="step-item" :class="{canClick: isCategory('manager'), isActive: myDetail.id==item.id, isDone: item.done}" v-for="(item,index) in managerLists" @click="showDetail(managerLists[index])">
 								<div class="item-img"><span :class="'icon-sharp-'+ item.icon + '-24px'"></span></div>
 								<div class="item-list">
 									<p><span class="icon-sharp-build-24px"></span>{{checkedLength(item.recommend)}}/{{item.recommend && item.recommend.length}}</p>
@@ -75,14 +87,14 @@
         </div>
       </div>
       <div class="note-body">
-        <div class="note-container" v-if="myDetail.recommend.length>0">
+        <div class="note-container" v-if="myDetail.recommend && myDetail.recommend.length>0">
           <div class="title">
               <span class="icon-sharp-settings-24px"></span>
               <p>RECOMMENDED</p>
           </div>
           <button class="btn" v-for="(item,index) in myDetail.recommend" :class="{isActive: item.checked}" @click.prevent="addCheck(myDetail.id, index, 'recommend')">{{item.title}}</button>
         </div>
-        <div class="note-container" v-if="myDetail.optional.length>0">
+        <div class="note-container" v-if="myDetail.optional && myDetail.optional.length>0">
             <div class="title">
                 <span class="icon-sharp-filter_tilt_shift-24px"></span>
                 <p>OPTIONAL</p>
