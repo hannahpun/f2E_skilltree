@@ -75,8 +75,10 @@
   margin-bottom: 10px;
   opacity: 0.3;
   cursor: pointer;
+  pointer-events: none;
   &.canClick{
     opacity: 1;
+    pointer-events: auto;
   }
   
   &.isDone{

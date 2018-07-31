@@ -29,44 +29,45 @@
     </div>
     <div class="body-content">
         <div class="step step-1">
-          <div class="step-item" :class="{canClick: isCategory('basic'), isDone: checkedLength(item.recommend) == item.recommend.length, isActive: myDetail.id==item.id}" v-for="(item,index) in basicLists" @click="showDetail(basicLists[index])">
+          <div class="step-item" :class="{canClick: isCategory('basic'), isDone: item.done, isActive: myDetail.id==item.id}" v-for="(item,index) in basicLists" @click="showDetail(basicLists[index])">
             <div class="item-img"><span :class="'icon-sharp-'+ item.icon + '-24px'"></span></div>
             <div class="item-list">
               <p><span class="icon-sharp-build-24px"></span>{{checkedLength(item.recommend)}}/{{item.recommend && item.recommend.length}}</p>
-              <p><span class="icon-sharp-filter_tilt_shift-24px"></span>0/{{item.optional && item.optional.length}}</p>
+              <p><span class="icon-sharp-filter_tilt_shift-24px"></span>{{checkedLength(item.optional)}}/{{item.optional && item.optional.length}}</p>
             </div>
           </div>
         </div>
         <div class="step step-2">
-						<div class="step-item" :class="{canClick: isCategory('css'), isDone: checkedLength(item.recommend) == item.recommend.length, isActive: myDetail.id==item.id}" v-for="(item,index) in cssLists" @click="showDetail(cssLists[index])">
+						<div class="step-item" :class="{canClick: isCategory('css'), isDone: item.done, isActive: myDetail.id==item.id}" v-for="(item,index) in cssLists" @click="showDetail(cssLists[index])">
 							<div class="item-img"><span :class="'icon-sharp-'+ item.icon + '-24px'"></span></div>
 							<div class="item-list">
 								<p><span class="icon-sharp-build-24px"></span>{{checkedLength(item.recommend)}}/{{item.recommend && item.recommend.length}}</p>
-								<p><span class="icon-sharp-filter_tilt_shift-24px"></span>0/{{item.optional && item.optional.length}}</p>
+								<p><span class="icon-sharp-filter_tilt_shift-24px"></span>{{checkedLength(item.optional)}}/{{item.optional && item.optional.length}}</p>
 							</div>
 						</div>
         </div>
         <div class="step step-3">
-						<div class="step-item" :class="{canClick: isCategory('js'), isDone: checkedLength(item.recommend) == item.recommend.length, isActive: myDetail.id==item.id}" v-for="(item,index) in jsLists" @click="showDetail(jsLists[index])">
+						<div class="step-item" :class="{canClick: isCategory('js'), isDone: item.done, isActive: myDetail.id==item.id}" v-for="(item,index) in jsLists" @click="showDetail(jsLists[index])">
 								<div class="item-img"><span :class="'icon-sharp-'+ item.icon + '-24px'"></span></div>
 								<div class="item-list">
 									<p><span class="icon-sharp-build-24px"></span>{{checkedLength(item.recommend)}}/{{item.recommend && item.recommend.length}}</p>
-									<p><span class="icon-sharp-filter_tilt_shift-24px"></span>0/{{item.optional && item.optional.length}}</p>
+									<p><span class="icon-sharp-filter_tilt_shift-24px"></span>{{checkedLength(item.optional)}}/{{item.optional && item.optional.length}}</p>
 								</div>
 							</div>
 				</div>
         <div class="step step-4">
-						<div class="step-item" :class="{canClick: isCategory('maneger'), isActive: myDetail.id==item.id, isDone: checkedLength(item.recommend) == item.recommend.length}" v-for="(item,index) in managerLists" @click="showDetail(managerLists[index])">
+						<div class="step-item" :class="{canClick: isCategory('maneger'), isActive: myDetail.id==item.id, isDone: item.done}" v-for="(item,index) in managerLists" @click="showDetail(managerLists[index])">
 								<div class="item-img"><span :class="'icon-sharp-'+ item.icon + '-24px'"></span></div>
 								<div class="item-list">
 									<p><span class="icon-sharp-build-24px"></span>{{checkedLength(item.recommend)}}/{{item.recommend && item.recommend.length}}</p>
-									<p><span class="icon-sharp-filter_tilt_shift-24px"></span>0/{{item.optional && item.optional.length}}</p>
+									<p><span class="icon-sharp-filter_tilt_shift-24px"></span>{{checkedLength(item.optional)}}/{{item.optional && item.optional.length}}</p>
 								</div>
 							</div>
 				</div>
     </div>
   </div>
   <div class="note">
+    <!-- <pre>{{basicData}}</pre> -->
       <div class="note-header">
         <div class="title">
           <span :class="'icon-sharp-'+ myDetail.icon + '-24px'"></span>
@@ -74,19 +75,19 @@
         </div>
       </div>
       <div class="note-body">
-        <div class="note-container" v-if="myDetail.recommend">
+        <div class="note-container" v-if="myDetail.recommend.length>0">
           <div class="title">
               <span class="icon-sharp-settings-24px"></span>
               <p>RECOMMENDED</p>
           </div>
-          <button class="btn" v-for="(item,index) in myDetail.recommend" :class="{isActive: item.checked}" @click.prevent="addCheck(myDetail.id, index)">{{item.title}}</button>
+          <button class="btn" v-for="(item,index) in myDetail.recommend" :class="{isActive: item.checked}" @click.prevent="addCheck(myDetail.id, index, 'recommend')">{{item.title}}</button>
         </div>
-        <div class="note-container" v-if="myDetail.optional">
+        <div class="note-container" v-if="myDetail.optional.length>0">
             <div class="title">
                 <span class="icon-sharp-filter_tilt_shift-24px"></span>
                 <p>OPTIONAL</p>
             </div>
-            <button class="btn" v-for="item in myDetail.optional">{{item.title}}</button>
+            <button class="btn" v-for="(item,index) in myDetail.optional" :class="{isActive: item.checked}" @click.prevent="addCheck(myDetail.id, index, 'optional')">{{item.title}}</button>
           </div>
       </div>
   </div>

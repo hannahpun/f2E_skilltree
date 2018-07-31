@@ -10,6 +10,7 @@ export default {
         id: "skills",
         icon: "category",
         title: "BASIC SKILLS",
+        done: false,
         recommend: [
           {title: "Learn HTML", checked: false},
           {title: "Basics of CSS", checked: false}, 
@@ -21,6 +22,7 @@ export default {
         id: "tools",
         icon: "build",
         title: "BASIC Tools",
+        done: false,
         recommend: [
           {title: "Git - Version Contro", checked: false},
           {title: "Basic Terminal Usage", checked: false}, 
@@ -33,6 +35,7 @@ export default {
         id: "framework",
         icon: "flip_to_front",
         title: "CSS FRAMEWORK",
+        done: false,
         recommend: [
           {title: "Bootstrap", checked: false}
         ],
@@ -46,6 +49,7 @@ export default {
         id: "prepro",
         icon: "view_quilt",
         title: "CSS PREPROCESSORS",
+        done: false,
         recommend: [
           {title: "Sass", checked: false},
           {title: "PostCSS", checked: false}
@@ -59,6 +63,7 @@ export default {
         id: "architechture",
         icon: "developer_board",
         title: "CSS ARCHITECHTURE",
+        done: false,
         recommend: [
           {title: "OOCSS", checked: false}
         ],
@@ -71,6 +76,7 @@ export default {
         id: "cssSkill",
         icon: "devices",
         title: "CSS SKILLS",
+        done: false,
         recommend: [
           {title: "Responsive", checked: false},
           {title: "Flexbox", checked: false}
@@ -81,6 +87,7 @@ export default {
         id: "mastery",
         icon: "widgets",
         title: "CSS MASTERY",
+        done: true,
         recommend: [],
         optional: [
           {title: "Grid Layout", checked: false},
@@ -92,6 +99,7 @@ export default {
         id: "dom",
         icon: "hdr_strong",
         title: "BASIC DOM",
+        done: true,
         recommend: [],
         optional: [{title: "jQuery", checked: false},]
       },{
@@ -99,6 +107,7 @@ export default {
         id: "draw",
         icon: "gradient",
         title: "WEB DRAWING",
+        done: true,
         recommend: [],
         optional: [
           {title: "SVG", checked: false},
@@ -110,6 +119,7 @@ export default {
         id: "es6",
         icon: "format_quote",
         title: "JAVASCRIPT SKILLS",
+        done: false,
         recommend: [
           {title: "ES6", checked: false}
         ],
@@ -119,6 +129,7 @@ export default {
         id: "jsframework",
         icon: "developer_mode",
         title: "JAVASCRIPT FRAMEWORK",
+        done: false,
         recommend: [
           {title: "Vue.js", checked: false},
           {title: "Angular", checked: false},
@@ -130,6 +141,7 @@ export default {
         id: "jsprepro",
         icon: "nfc",
         title: "JAVASCRIPT PREPROCESSORS",
+        done: true,
         recommend: [],
         optional: [
           {title: "TypeScript", checked: false},
@@ -141,6 +153,7 @@ export default {
         id: "npm",
         icon: "device_hub",
         title: "PACKAGE MANAGERS",
+        done: false,
         recommend: [
           {title: "NPM", checked: false},
           {title: "YARN", checked: false}
@@ -151,6 +164,7 @@ export default {
         id: "task",
         icon: "import_contacts",
         title: "TASK RUNNERS",
+        done: false,
         recommend: [
           {title: "npm scripts", checked: false},
           {title: "gulp", checked: false}
@@ -161,6 +175,7 @@ export default {
         id: "buildtools",
         icon: "table_chart",
         title: "BUILD TOOLS",
+        done: false,
         recommend: [
           {title: "Webpack", checked: false}
         ],
@@ -202,9 +217,24 @@ export default {
     showDetail(data){
       this.myDetail = data;
     },
-    addCheck(id, index){
-        this.clickBtnIndex = !this.clickBtnIndex
-      this.basicData.find(item => item.id == id).recommend[index].checked = true;      
+    addCheck(id, index, subCategory){
+      // let btn is active
+      this.clickBtnIndex = !this.clickBtnIndex;
+
+      // change basicData property done and recommend checked
+      let goal = this.basicData.find(item => item.id == id);
+      if(subCategory=='recommend'){
+        goal.recommend[index].checked = true;      
+        goal.done = goal.recommend.every(i => i.checked==true)
+      }else if(subCategory=='optional'){
+        goal.optional[index].checked = true;     
+      }
+      
+
+      // can click next level
+      if(this.basicLists.every(i => i.done==true)){
+        this.clickList.push('css')
+      }
     },
     checkedLength(list){
         return list.filter(item => item.checked == true).length
