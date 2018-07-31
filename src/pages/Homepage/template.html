@@ -29,7 +29,7 @@
     </div>
     <div class="body-content">
         <div class="step step-1">
-          <div class="step-item" :class="{canClick: isBasic, isActive: myDetail.id==item.id, isDone: checkedLength(item.recommend) == item.recommend && item.recommend.length}" v-for="(item,index) in basicLists" @click="showDetail(basicLists[index])">
+          <div class="step-item" :class="{canClick: isCategory('basic'), isDone: checkedLength(item.recommend) == item.recommend.length, isActive: myDetail.id==item.id}" v-for="(item,index) in basicLists" @click="showDetail(basicLists[index])">
             <div class="item-img"><span :class="'icon-sharp-'+ item.icon + '-24px'"></span></div>
             <div class="item-list">
               <p><span class="icon-sharp-build-24px"></span>{{checkedLength(item.recommend)}}/{{item.recommend && item.recommend.length}}</p>
@@ -38,7 +38,7 @@
           </div>
         </div>
         <div class="step step-2">
-						<div class="step-item" :class="{canClick: isBasic, isActive: myDetail.id==item.id, isDone: checkedLength(item.recommend) == item.recommend && item.recommend.length}" v-for="(item,index) in cssLists" @click="showDetail(cssLists[index])">
+						<div class="step-item" :class="{canClick: isCategory('css'), isDone: checkedLength(item.recommend) == item.recommend.length, isActive: myDetail.id==item.id}" v-for="(item,index) in cssLists" @click="showDetail(cssLists[index])">
 							<div class="item-img"><span :class="'icon-sharp-'+ item.icon + '-24px'"></span></div>
 							<div class="item-list">
 								<p><span class="icon-sharp-build-24px"></span>{{checkedLength(item.recommend)}}/{{item.recommend && item.recommend.length}}</p>
@@ -46,8 +46,24 @@
 							</div>
 						</div>
         </div>
-        <div class="step step-3">3</div>
-        <div class="step step-4">4</div>
+        <div class="step step-3">
+						<div class="step-item" :class="{canClick: isCategory('js'), isDone: checkedLength(item.recommend) == item.recommend.length, isActive: myDetail.id==item.id}" v-for="(item,index) in jsLists" @click="showDetail(jsLists[index])">
+								<div class="item-img"><span :class="'icon-sharp-'+ item.icon + '-24px'"></span></div>
+								<div class="item-list">
+									<p><span class="icon-sharp-build-24px"></span>{{checkedLength(item.recommend)}}/{{item.recommend && item.recommend.length}}</p>
+									<p><span class="icon-sharp-filter_tilt_shift-24px"></span>0/{{item.optional && item.optional.length}}</p>
+								</div>
+							</div>
+				</div>
+        <div class="step step-4">
+						<div class="step-item" :class="{canClick: isCategory('maneger'), isActive: myDetail.id==item.id, isDone: checkedLength(item.recommend) == item.recommend.length}" v-for="(item,index) in managerLists" @click="showDetail(managerLists[index])">
+								<div class="item-img"><span :class="'icon-sharp-'+ item.icon + '-24px'"></span></div>
+								<div class="item-list">
+									<p><span class="icon-sharp-build-24px"></span>{{checkedLength(item.recommend)}}/{{item.recommend && item.recommend.length}}</p>
+									<p><span class="icon-sharp-filter_tilt_shift-24px"></span>0/{{item.optional && item.optional.length}}</p>
+								</div>
+							</div>
+				</div>
     </div>
   </div>
   <div class="note">

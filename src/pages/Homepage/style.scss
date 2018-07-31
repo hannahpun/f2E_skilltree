@@ -26,10 +26,10 @@
     &::after{
       content: "";
       width: 38px;
-      height: 50%;
+      height: 80%;
       background-color: $violet;
       position: absolute;
-      bottom: 10%;
+      bottom: 5%;
       transform: translateX(-50%);
       left: 50%;
       z-index: -1;
@@ -78,11 +78,7 @@
   &.canClick{
     opacity: 1;
   }
-  &.isActive{
-    .item-img{
-      border: 2px solid $pink;
-    }
-  }
+  
   &.isDone{
     .item-img{
       background-color: $violet;
@@ -94,6 +90,11 @@
     }
     .item-list{
       color: $lavender-dark;
+    }
+  }
+  &.isActive{
+    .item-img{
+      border: 2px solid $pink;
     }
   }
   .item-img {
@@ -120,7 +121,9 @@
 .note {
   background-color: $lavender-dark;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  max-width: 400px;
+  // flex-wrap: wrap;
   .title {
     text-align: center;
     line-height: 1.2;
@@ -131,6 +134,7 @@
 }
 
 .note-header {
+  width: 100%;
   padding: 25px 35px;
   background-color: $lavender;
   flex: 4;
