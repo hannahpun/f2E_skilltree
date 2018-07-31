@@ -92,14 +92,14 @@
               <span class="icon-sharp-settings-24px"></span>
               <p>RECOMMENDED</p>
           </div>
-          <button class="btn" v-for="(item,index) in myDetail.recommend" :class="{isActive: item.checked}" @click.prevent="addCheck(myDetail.id, index, 'recommend')">{{item.title}}</button>
+          <button class="btn" v-for="(item,index) in myDetail.recommend" :class="{isActive: item.checked}" @click.stop="addCheck(myDetail.id, index, 'recommend')">{{item.title}}</button>
         </div>
         <div class="note-container" v-if="myDetail.optional && myDetail.optional.length>0">
             <div class="title">
                 <span class="icon-sharp-filter_tilt_shift-24px"></span>
                 <p>OPTIONAL</p>
             </div>
-            <button class="btn" v-for="(item,index) in myDetail.optional" :class="{isActive: item.checked}" @click.prevent="addCheck(myDetail.id, index, 'optional')">{{item.title}}</button>
+            <button class="btn" v-for="(item,index) in myDetail.optional" :class="{isActive: item.checked}" @click.stop="addCheck(myDetail.id, index, 'optional')">{{item.title}}</button>
           </div>
       </div>
   </div>

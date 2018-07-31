@@ -211,10 +211,6 @@ export default {
         this.nowTxt = 0
         return this.myImg[0]
       }
-      // debugger
-    },
-    isBasic(){
-      return this.clickList.findIndex(item => item == "basic") != -1
     },
     basicLists(){
         return this.basicData.filter(item => item.category == "basic")
@@ -248,7 +244,7 @@ export default {
       let goal = this.basicData.find(item => item.id == id);
       if(subCategory=='recommend'){
         goal.recommend[index].checked = true;      
-        goal.done = goal.recommend.every(i => i.checked==true)
+        goal.done = goal.recommend.every(i => i.checked===true)
       }else if(subCategory=='optional'){
         goal.optional[index].checked = true;     
       }
