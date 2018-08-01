@@ -30,6 +30,7 @@
     margin-top: 15px;
     text-decoration: underline;
     line-height: 1.2;
+    text-transform: uppercase;
     text-decoration-color: $lavender-dark;
   }
   .myTxt{
@@ -114,7 +115,7 @@
   margin-bottom: 10px;
   opacity: 0.3;
   cursor: pointer;
-  // pointer-events: none;
+  pointer-events: none;
   &.canClick{
     opacity: 1;
     pointer-events: auto;

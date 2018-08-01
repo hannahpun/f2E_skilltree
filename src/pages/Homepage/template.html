@@ -3,7 +3,10 @@
     <div class="txt">
         <h1>FRONT-END SKILL TREE</h1>
         <span class="sub-title">CURRENT RANK</span>
-        <h2>FRONT-END NOOB</h2>
+        <h2 v-if="nowTxt==0">FRONT-END NOOB</h2>
+        <h2 v-if="nowTxt==1">FRONT-END Beginnner</h2>
+        <h2 v-if="nowTxt==2">FRONT-END Developer</h2>
+        <h2 v-if="nowTxt==3">FRONT-END Master</h2>
     </div>
     
     <div class="img">

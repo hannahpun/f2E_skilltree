@@ -6,10 +6,10 @@ export default {
       clickList: ['basic'],
       checked: 0,
       myImg: [
+        require('@/assets/img-ship-noob.png'),
         require('@/assets/img-ship-beginner.png'),
         require('@/assets/img-ship-developer.png'),
-        require('@/assets/img-ship-master.png'),
-        require('@/assets/img-ship-noob.png')
+        require('@/assets/img-ship-master.png')
       ],
       basicData: [{
         category: 'basic',
